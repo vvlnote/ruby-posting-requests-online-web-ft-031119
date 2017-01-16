@@ -145,14 +145,14 @@ def index
     req.params['oauth_token'] = session[:token]
     req.params['v'] = '20160201'
   end
-  @results = JSON.parse(resp.body)["response"]["list"]["listItems"]["items"]
+  @results = JSON.parse(resp.body)["response"]["tips"]["items"]
 end
 # ...
 ```
 
 Looks very similar to our `friends` action.
 
-It seems a little crazy that we have to dig so deep (`["response"]["list"]["listItems"]["items"]`) just to get to the actual tips list, but that is how deep they are nested in the response. You'll need to pay careful attention to the documentation and the response to make sure you're grabbing what you need from the response body.
+It seems a little crazy that we have to dig so deep (`["response"]["tips"]["items"]`) just to get to the actual tips list, but that is how deep they are nested in the response. You'll need to pay careful attention to the documentation and the response to make sure you're grabbing what you need from the response body.
 
 And let's round it out by displaying the tips in our `index.html.erb` template:
 
@@ -162,7 +162,7 @@ And let's round it out by displaying the tips in our `index.html.erb` template:
 <ul>
 <% @results.each do |item| %>
   <li><strong>><%= item["venue"]["name"] %></strong><br>
-    <%= item["tip"]["text"] %></li>
+    <%= item["text"] %></li>
 <% end %>
 </ul>
 ```
@@ -198,3 +198,5 @@ In Postman, there's a section under the URL entry that has a place where you can
 Pay close attention to the documentation of the API provider to make sure you're setting your request data in the right place!
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-posting-requests' title='Posting to APIs'>Posting to APIs</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/ruby-posting-requests'>Posting to APIs </a> on Learn.co and start learning to code for free.</p>
