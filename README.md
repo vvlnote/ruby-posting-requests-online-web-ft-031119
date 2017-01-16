@@ -187,7 +187,7 @@ You can do this:
 
 ```ruby
 Faraday.post("https://url/to/api") do |req|
-  req.body = "{ "my_param": my_value }"
+  req.body = "{ 'my_param': my_value }"
 end
 ```
 
