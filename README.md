@@ -161,7 +161,7 @@ And let's round it out by displaying the tips in our `index.html.erb` template:
 <h1>My Tips</h1>
 <ul>
 <% @results.each do |item| %>
-  <li><strong>><%= item["venue"]["name"] %></strong><br>
+  <li><strong><%= item["venue"]["name"] %></strong><br>
     <%= item["tip"]["text"] %></li>
 <% end %>
 </ul>
