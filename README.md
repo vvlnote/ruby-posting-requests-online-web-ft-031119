@@ -42,10 +42,12 @@ So, we're going to POST to `https://api.foursquare.com/v2/tips/add`, then we nee
 
 ```
 venueId      YOUR_VENUE_ID
-text         Love this place!
+text         I absolutely love this place!
 oauth_token  YOUR_TOKEN
 v            20160201
 ```
+
+**NOTE:** Text must be at least 10 characters and less than 200
 
 Don't forget that pesky `v` parameter for Foursquare versioning!
 
@@ -56,7 +58,7 @@ If we've done it right, when we hit "Send", we should get a response that looks 
     "tip": {
       "id": "56c223e1498e82b67c98f548",
       "createdAt": 1455563745,
-      "text": "Love this place!",
+      "text": "I absolutely love this place!",
       "type": "user",
       "canonicalUrl": "https://foursquare.com/item/56c223e1498e82b67c98f548",
       "likes": {
